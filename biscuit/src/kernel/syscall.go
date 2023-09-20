@@ -3311,7 +3311,7 @@ func sys_execv1(p *proc.Proc_t, tf *[defs.TFSIZE]uintptr, paths ustr.Ustr,
 	}
 	defer fd.Close_panic(file)
 
-	hdata := make([]uint8, 512)
+	hdata := make([]uint8, 1024)
 	ub := &vm.Fakeubuf_t{}
 	ub.Fake_init(hdata)
 	ret, err := file.Fops.Read(ub)
