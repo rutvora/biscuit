@@ -22,6 +22,12 @@ implementations, like musl.
 This repo is a fork of the Go repo (https://github.com/golang/go).  Nearly all
 of Biscuit's code is in biscuit/.
 
+## Prerequisites
+I have tested this on ubuntu 22.04 on an x86_64 system only
+```
+$ sudo apt install build-essential git qemu-system-x86_64 python2
+```
+
 ## Install
 
 The root of the repository contains the Go 1.10.1 tools/runtime. Some of
@@ -33,13 +39,14 @@ currently. You must build Biscuit's modified Go runtime before building
 Biscuit:
 ```
 $ git clone https://github.com/mit-pdos/biscuit.git
-$ cd biscuit/src
-$ ./make.bash
+$ cd biscuit
+$ # Docker helps avoid installing an older go version on your main system
+$ docker run -it --rm -v $(pwd):/go golang:1.10 bash -c 'cd src && ./make.bash'
 ```
 
 then go to Biscuit's main part and launch it:
 ```
-$ cd ../biscuit
+$ cd biscuit # Yes, the nested "biscuit" folder inside the repository
 $ make qemu CPUS=2
 ```
 
