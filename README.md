@@ -55,6 +55,8 @@ Biscuit should boot, then you can type a command:
 # ls
 ```
 
+Biscuit does not support `exit` or `quit`, so you have to use qemu commands instead (e.g. `Ctrl+A -> X` to terminate/shutdown QEMU instance)
+
 ## Troubleshooting
 
 * You need `qemu-system-x86_64` and `python2` in your environment.  If your distribution does not name them that way, you have to fix the naming, path, etc.
